@@ -21,6 +21,7 @@ beratBuah = float(input('Masukkan berat buah: '))
 hargaBuah = int(input('Masukkan Harga Buah: '))
 
 potonganHarga = 0
+potonganHargaTambahan = 0
 hadiah = ''
 
 if beratBuah <= 5:
@@ -31,12 +32,14 @@ match pilihanBuah:
         if 5 < beratBuah <= 20:
             potonganHarga = 0.05
         elif beratBuah > 20:
-            potonganHarga = 0.05 + 0.07
+            potonganHargaTambahan = 0.07
+            potonganHarga = 0.05 + potonganHargaTambahan
     case 2:
         if 5 < beratBuah <= 20:
             potonganHarga = 0.025
         elif beratBuah > 20:
-            potonganHarga = 0.025 + 0.07
+            potonganHargaTambahan = 0.07
+            potonganHarga = 0.025 + potonganHargaTambahan
     case 3:
         if 5 < beratBuah <=10:
             potonganHarga = 0.07
@@ -53,10 +56,12 @@ match pilihanBuah:
 hargaAsli = beratBuah * hargaBuah
 hargaSetelahPotongan = hargaAsli - (hargaAsli * potonganHarga)
 
+print()
 print(f'Harga asli              : Rp {int(hargaAsli)}')
 if potonganHarga != 0:
     print(f'Potongan harga          : {float(potonganHarga * 100)}%')
     print(f'Harga Setelah potongan  : Rp {int(hargaSetelahPotongan)}')
+
 else:
     print('Anda tidak mendapat potongan harga')
 if hadiah != '':
